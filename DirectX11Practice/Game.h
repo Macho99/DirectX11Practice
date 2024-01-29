@@ -50,6 +50,9 @@ private:
 	// SRV
 	ComPtr<ID3D11ShaderResourceView> _shaderResourceView = nullptr;
 
+	ComPtr<ID3D11SamplerState> _samplerState = nullptr;
+	ComPtr<ID3D11BlendState> _blendState = nullptr;
+
 private:
 	// [CPU <-> RAM] [GPU <-> VRAM]
 	// SRT
@@ -74,6 +77,8 @@ private:
 	void CreatePS();
 
 	void CreateRasterizerState();
+	void CreateSamplerState();
+	void CreateBlendState();
 	void CreateSRV();
 
 	void CreateConstantBuffer();
