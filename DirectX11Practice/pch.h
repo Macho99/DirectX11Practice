@@ -15,6 +15,7 @@ using namespace std;
 // WIN
 #include <windows.h>
 #include <assert.h>
+#include <memory>
 
 //DX
 #include <d3d11.h>
@@ -36,3 +37,6 @@ using namespace Microsoft::WRL;
 #endif
 
 #define CHECK(p) assert(SUCCEEDED(p))
+
+// Engine
+#include "Graphics.h"

@@ -12,21 +12,11 @@ public:
 
 private:
 	HWND _hwnd = nullptr;
-	uint32 _width = 0;
-	uint32 _height = 0;
+	//uint32 _width = 0;
+	//uint32 _height = 0;
 
-private:
-	// Device & Swap
-	ComPtr<ID3D11Device> _device = nullptr;
-	ComPtr<ID3D11DeviceContext> _deviceContext = nullptr;
-	ComPtr<IDXGISwapChain> _swapChain = nullptr;
 	
-	// RTV
-	ComPtr<ID3D11RenderTargetView> _renderTargetView = nullptr;
-
-	// Misc
-	D3D11_VIEWPORT _viewport = { 0 };
-	float _clearColor[4] = { 1.f, 0.5f, 0.5f, 0.5f };
+	shared_ptr<Graphics> _graphics;
 
 private:
 	// Geometry
@@ -59,15 +49,9 @@ private:
 	TransformData _transformData;
 	ComPtr<ID3D11Buffer> _constantBuffer;
 
-
-private:
-	void RenderBegin();
-	void RenderEnd();
-
-private:
-	void CreateDeviceAndSwapChain();
-	void CreateRenderTargetView();
-	void SetViewport();
+	Vec3 _localPosition = Vec3::Zero;
+	Vec3 _localRotation = Vec3::Zero;
+	Vec3 _localScale = Vec3::One;
 
 private:
 	void CreateGeometry();

@@ -21,6 +21,33 @@
     <Filter Include="소스 파일\98. Shaders">
       <UniqueIdentifier>{847f39c4-b6a9-4056-8d5a-5b23df36c051}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\99. Headers\Utils">
+      <UniqueIdentifier>{1308c002-e1d9-4931-a44f-c43e2ecdda83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Engine">
+      <UniqueIdentifier>{a611ceec-3540-42ef-9cb4-b25c1facea37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Engine\Pipeline">
+      <UniqueIdentifier>{50d09c0a-cd93-4826-8ca3-21d7cb8a37c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Engine\Pipeline\01. InputAssembler">
+      <UniqueIdentifier>{d197a7f8-6c68-4d36-a0be-f0d5eecb3d7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Engine\Pipeline\00. Geometry">
+      <UniqueIdentifier>{3746313b-306d-40ea-9be9-92eb962a0777}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Engine\Pipeline\02. VertexShader">
+      <UniqueIdentifier>{b08898ca-97e0-4059-9173-1150965db37a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Engine\Pipeline\03. Rasterizer">
+      <UniqueIdentifier>{1067aa11-3654-4849-9d64-6d7797bb9fc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Engine\Pipeline\04. PixelShader">
+      <UniqueIdentifier>{acebaa80-6ba6-4d01-a530-633500cc88a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Engine\Pipeline\05. OutputMerger">
+      <UniqueIdentifier>{06dfd4ab-907b-4eb9-98b6-b8f2e57109a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectX11Practice.h">
@@ -50,6 +77,12 @@
     <ClInclude Include="Game.h">
       <Filter>소스 파일\01. Main</Filter>
     </ClInclude>
+    <ClInclude Include="SimpleMath.h">
+      <Filter>소스 파일\99. Headers\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>소스 파일\00. Engine\Pipeline</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DirectX11Practice.rc">
@@ -74,10 +107,21 @@
     <ClCompile Include="Game.cpp">
       <Filter>소스 파일\01. Main</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleMath.cpp">
+      <Filter>소스 파일\99. Headers\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>소스 파일\00. Engine\Pipeline</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Default.hlsl">
       <Filter>소스 파일\98. Shaders</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SimpleMath.inl">
+      <Filter>소스 파일\99. Headers\Utils</Filter>
+    </None>
   </ItemGroup>
 </Project>
