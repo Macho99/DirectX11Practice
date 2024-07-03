@@ -24,9 +24,9 @@ VS_OUTPUT VS(VS_INPUT input)
     VS_OUTPUT output;
     
     //WVP
-    float4 position = mul(input.position, matWorld);
-    position = mul(position, matView);
-    position = mul(position, matProjection);
+    float4 position = mul(input.position, matWorld); // W
+    position = mul(position, matView); // V
+    position = mul(position, matProjection); // P
     
     output.position = position;
     output.uv = input.uv;
@@ -36,6 +36,7 @@ VS_OUTPUT VS(VS_INPUT input)
 }
 
 Texture2D texture0 : register(t0);
+Texture2D texture1 : register(t1);
 SamplerState sampler0 : register(s0);
 
 float4 PS(VS_OUTPUT input) : SV_Target

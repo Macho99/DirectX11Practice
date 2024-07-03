@@ -4,6 +4,9 @@
 Graphics::Graphics(HWND hwnd)
 {
 	_hwnd = hwnd;
+	_width = GWinSizeX;
+	_height = GWinSizeY;
+
 	CreateDeviceAndSwapChain();
 	CreateRenderTargetView();
 	SetViewport();

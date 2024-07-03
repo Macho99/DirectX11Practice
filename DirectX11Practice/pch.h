@@ -5,6 +5,8 @@
 #include "Struct.h"
 
 // STL
+#include <memory>
+#include <iostream>
 #include <string>
 #include <vector>
 #include <list>
@@ -15,7 +17,6 @@ using namespace std;
 // WIN
 #include <windows.h>
 #include <assert.h>
-#include <memory>
 
 //DX
 #include <d3d11.h>
@@ -40,3 +41,9 @@ using namespace Microsoft::WRL;
 
 // Engine
 #include "Graphics.h"
+#include "VertexBuffer.h"
+#include "IndexBuffer.h"
+#include "InputLayout.h"
+#include "Geometry.h"
+#include "GeometryHelper.h"
+#include "VertexData.h"
