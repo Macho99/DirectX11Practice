@@ -65,7 +65,7 @@ void Game::Render()
 	// IA - VS - RS - PS - OM
 	{
 		// IA
-		uint32 stride = sizeof(Vertex);
+		uint32 stride = sizeof(VertexTextureData);
 		uint32 offset = 0;
 		deviceContext->IASetVertexBuffers(0, 1, _vertexBuffer->GetComPtr().GetAddressOf(),
 			&stride, &offset);
@@ -94,7 +94,7 @@ void Game::Render()
 		deviceContext->OMSetBlendState(_blendState.Get(), nullptr, 0xFFFFFFFF);
 
 		//_deviceContext->Draw(_vertices.size(), 0);
-		deviceContext->DrawIndexed(_indices.size(), 0, 0);
+		deviceContext->DrawIndexed(_geometry->GetIndexCount(), 0, 0);
 	}
 
 	_graphics->RenderEnd();
@@ -106,30 +106,19 @@ void Game::CreateGeometry()
 	GeometryHelper::CreateRectangle(_geometry);
 
 	// VertexBuffer
-	_vertexBuffer->Create<Vertex>(_vertices);
-
-	// Index
-	_indices = { 0, 1, 2, 2, 1, 3 };
+	_vertexBuffer->Create<VertexTextureData>(_geometry->GetVertices());
 
 	// Index Buffer
-	_indexBuffer->Create(_indices);
+	_indexBuffer->Create(_geometry->GetIndices());
 }
 
 void Game::CreateInputLayout()
 {
-	vector<D3D11_INPUT_ELEMENT_DESC> layout
-	{
-		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-		//{ "COLOR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-	};
-	_inputLayout->Create(layout, _vsBlob);
+	_inputLayout->Create(VertexTextureData::descs, _vsBlob);
 }
 
 void Game::CreateVS()
 {
-	LoadShaderFromFile(L"Default.hlsl", "VS", "vs_5_0", _vsBlob);
-
 	HRESULT hr = _graphics->GetDevice()->CreateVertexShader(_vsBlob->GetBufferPointer(),
 		_vsBlob->GetBufferSize(), nullptr, _vertexShader.GetAddressOf());
 	CHECK(hr);
@@ -137,8 +126,6 @@ void Game::CreateVS()
 
 void Game::CreatePS()
 {
-	LoadShaderFromFile(L"Default.hlsl", "PS", "ps_5_0", _psBlob);
-
 	HRESULT hr = _graphics->GetDevice()->CreatePixelShader(_psBlob->GetBufferPointer(),
 		_psBlob->GetBufferSize(), nullptr, _pixelShader.GetAddressOf());
 	CHECK(hr);
@@ -218,23 +205,5 @@ void Game::CreateConstantBuffer()
 	desc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 	
 	HRESULT hr = _graphics->GetDevice()->CreateBuffer(&desc, nullptr, _constantBuffer.GetAddressOf());
-	CHECK(hr);
-}
-
-void Game::LoadShaderFromFile(const wstring& path, const string& name, const string& version, ComPtr<ID3DBlob>& blob)
-{
-	const uint32 compileFlag = D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION;
-
-	HRESULT hr = ::D3DCompileFromFile(
-		path.c_str(),
-		nullptr, 
-		D3D_COMPILE_STANDARD_FILE_INCLUDE,
-		name.c_str(),
-		version.c_str(),
-		compileFlag,
-		0,
-		blob.GetAddressOf(),
-		nullptr
-	);
 	CHECK(hr);
 }
