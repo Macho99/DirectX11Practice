@@ -48,6 +48,7 @@ void VertexShader::Create(const wstring& path, const string& name, const string&
 }
 
 PixelShader::PixelShader(ComPtr<ID3D11Device> device)
+	:Shader(device)
 {
 }
 

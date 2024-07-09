@@ -48,6 +48,12 @@
     <Filter Include="소스 파일\00. Engine\Pipeline\05. OutputMerger">
       <UniqueIdentifier>{06dfd4ab-907b-4eb9-98b6-b8f2e57109a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\00. Engine\GameObject">
+      <UniqueIdentifier>{3ddb5bc0-6188-49fb-b9ec-261c0c00e336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\00. Engine\Component">
+      <UniqueIdentifier>{c92ef63f-8b2e-4f3a-8bca-e5adbceee698}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectX11Practice.h">
@@ -104,6 +110,33 @@
     <ClInclude Include="Shader.h">
       <Filter>소스 파일\00. Engine\Pipeline\02. VertexShader</Filter>
     </ClInclude>
+    <ClInclude Include="ConstantBuffer.h">
+      <Filter>소스 파일\00. Engine\Pipeline\02. VertexShader</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>소스 파일\00. Engine\Pipeline\04. PixelShader</Filter>
+    </ClInclude>
+    <ClInclude Include="RasterizerState.h">
+      <Filter>소스 파일\00. Engine\Pipeline\03. Rasterizer</Filter>
+    </ClInclude>
+    <ClInclude Include="BlendState.h">
+      <Filter>소스 파일\00. Engine\Pipeline\05. OutputMerger</Filter>
+    </ClInclude>
+    <ClInclude Include="SamplerState.h">
+      <Filter>소스 파일\00. Engine\Pipeline\04. PixelShader</Filter>
+    </ClInclude>
+    <ClInclude Include="Pipeline.h">
+      <Filter>소스 파일\00. Engine\Pipeline</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>소스 파일\00. Engine\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>소스 파일\00. Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>소스 파일\00. Engine\Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DirectX11Practice.rc">
@@ -154,6 +187,33 @@
     </ClCompile>
     <ClCompile Include="Shader.cpp">
       <Filter>소스 파일\00. Engine\Pipeline\02. VertexShader</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantBuffer.cpp">
+      <Filter>소스 파일\00. Engine\Pipeline\02. VertexShader</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>소스 파일\00. Engine\Pipeline\04. PixelShader</Filter>
+    </ClCompile>
+    <ClCompile Include="RasterizerState.cpp">
+      <Filter>소스 파일\00. Engine\Pipeline\03. Rasterizer</Filter>
+    </ClCompile>
+    <ClCompile Include="BlendState.cpp">
+      <Filter>소스 파일\00. Engine\Pipeline\05. OutputMerger</Filter>
+    </ClCompile>
+    <ClCompile Include="SamplerState.cpp">
+      <Filter>소스 파일\00. Engine\Pipeline\04. PixelShader</Filter>
+    </ClCompile>
+    <ClCompile Include="Pipeline.cpp">
+      <Filter>소스 파일\00. Engine\Pipeline</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>소스 파일\00. Engine\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>소스 파일\00. Engine\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>소스 파일\00. Engine\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
