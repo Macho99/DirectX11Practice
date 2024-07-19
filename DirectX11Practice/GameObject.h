@@ -1,12 +1,27 @@
 #pragma once
-class GameObject
+
+class MonoBehaviour;
+
+class GameObject : public enable_shared_from_this<GameObject>
 {
 public:
 	GameObject(ComPtr<ID3D11Device> device, 
 		ComPtr<ID3D11DeviceContext> deviceContext);
 	~GameObject();
 
+	void Awake();
+	void Start();
+	void FixedUpdate();
 	void Update();
+	void LateUpdate();
+
+	shared_ptr<Component> GetFixedComponent(ComponentType type);
+	shared_ptr<Transform> GetTransform();
+
+	shared_ptr<Transform> GetOrAddTransform();
+
+	void AddComponent(shared_ptr<Component> component);
+
 	void Render(shared_ptr<Pipeline> pipeline);
 
 private:
@@ -30,5 +45,8 @@ private:
 	TransformData _transformData;
 	shared_ptr<ConstantBuffer<TransformData>> _constantBuffer;
 
+protected:
+	array<shared_ptr<Component>, FIXED_COMPONENT_COUNT> _components;
+	vector<shared_ptr<MonoBehaviour>> _scripts;
 };
 

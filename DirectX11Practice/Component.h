@@ -1,19 +1,51 @@
 #pragma once
 
 class GameObject;
+class Transform;
+
+enum class ComponentType : uint8
+{
+	Transform,
+	MeshRenderer,
+	Camera,
+	Animator,
+
+	Script,
+
+	End
+};
+
+enum
+{
+	FIXED_COMPONENT_COUNT = static_cast<uint8>(ComponentType::End) - 1
+};
 
 class Component
 {
 public:
-	Component();
+	Component(ComponentType type);
 	virtual ~Component();
 
-	shared_ptr<GameObject> GetGameObject() { return _owner.lock(); }
+	virtual void Awake() {}
+	virtual void Start() {}
 
-	virtual void Init();
-	virtual void Update();
+	virtual void FixedUpdate() {}
+	virtual void Update() {}
+	virtual void LateUpdate() {}
+
+
+public:
+	ComponentType GetType() { return _type; }
+
+	shared_ptr<GameObject> GetGameObject();
+	shared_ptr<Transform> GetTransform();
 
 private:
-	weak_ptr<GameObject> _owner;
+	friend class GameObject;
+	void SetGameObject(shared_ptr<GameObject> gameObject) { _gameObject = gameObject; }
+
+private:
+	ComponentType _type;
+	weak_ptr<GameObject> _gameObject;
 };
 

@@ -20,6 +20,9 @@ private:
 	shared_ptr<Graphics> _graphics;
 	shared_ptr<Pipeline> _pipeline;
 
+
+	// TEMP
 	shared_ptr<GameObject> _gameObject;
+	shared_ptr<GameObject> _camera;
 };
 
