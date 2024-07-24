@@ -1,6 +1,12 @@
 #pragma once
 #include "ResourceBase.h"
 
+class Mesh;
+class Material;
+class Animation;
+class Shader;
+class Texture;
+
 class ResourceManager
 {
 public:
@@ -83,6 +89,14 @@ inline ResourceType ResourceManager::GetResourceType()
 {
 	if (::is_same_v<T, Texture>)
 		return ResourceType::Texture;
+	if (::is_same_v<T, Animation>)
+		return ResourceType::Animation;
+	if (::is_same_v<T, Material>)
+		return ResourceType::Material;
+	if (::is_same_v<T, Mesh>)
+		return ResourceType::Mesh;
+	if (::is_same_v<T, Shader>)
+		return ResourceType::Shader;
 
 	assert(false);
 	return ResourceType::None;
