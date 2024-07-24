@@ -24,5 +24,5 @@ void Camera::UpdateMatrix()
 	if (_type == ProjectionType::Perspective)
 		S_MatProjection = ::XMMatrixPerspectiveLH(XM_PI / 4.f, 800.f / 600.f, 1.f, 1000.f);
 	else if (_type == ProjectionType::Orthographic)
-		S_MatProjection = ::XMMatrixOrthographicLH(800.f, 600.f, 1.f, 1000.f);
+		S_MatProjection = ::XMMatrixOrthographicLH(8.f, 6.f, 1.f, 1000.f);
 }

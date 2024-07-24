@@ -40,6 +40,11 @@ using namespace Microsoft::WRL;
 
 #define CHECK(p) assert(SUCCEEDED(p))
 
+#define GAME	GGame
+#define SCENE	GGame->GetSceneManager()
+#define TIME	GGame->GetTimeManager()
+#define Input	GGame->GetInputManager()
+
 // Engine
 #include "Graphics.h"
 #include "VertexBuffer.h"
