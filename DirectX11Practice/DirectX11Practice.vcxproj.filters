@@ -81,6 +81,9 @@
     <Filter Include="소스 파일\00. Engine\Resource">
       <UniqueIdentifier>{beac00a9-0c83-4c89-9cd3-3b976773c2fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\00. Engine\Manager\Render">
+      <UniqueIdentifier>{ed62db1f-4134-4f99-933f-e61901f1dd22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectX11Practice.h">
@@ -203,6 +206,12 @@
     <ClInclude Include="Material.h">
       <Filter>소스 파일\00. Engine\Resource</Filter>
     </ClInclude>
+    <ClInclude Include="RenderManager.h">
+      <Filter>소스 파일\00. Engine\Manager\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderHelper.h">
+      <Filter>소스 파일\00. Engine\Manager\Render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DirectX11Practice.rc">
@@ -319,6 +328,12 @@
     </ClCompile>
     <ClCompile Include="Mesh.cpp">
       <Filter>소스 파일\00. Engine\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderManager.cpp">
+      <Filter>소스 파일\00. Engine\Manager\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderHelper.cpp">
+      <Filter>소스 파일\00. Engine\Manager\Render</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
