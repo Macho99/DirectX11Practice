@@ -1,30 +1,37 @@
 #pragma once
 #include "Component.h"
+
+class Mesh;
+class Material;
+class Shader;
+
 class MeshRenderer : public Component
 {
 	using Super = Component;
 public:
 	MeshRenderer(ComPtr<ID3D11Device> device,
-		ComPtr<ID3D11DeviceContext> deviceContext, shared_ptr<Pipeline> pipeline);
+		ComPtr<ID3D11DeviceContext> deviceContext);
 	virtual ~MeshRenderer();
 
 	virtual void Update() override;
 
+	void SetMesh(shared_ptr<Mesh> mesh) { _mesh = mesh; }
+	void SetMaterial(shared_ptr<Material> material) { _material = material; }
+	void SetShader(shared_ptr<Shader> shader);
+	void SetTexture(shared_ptr<Texture> texture);
+
+	shared_ptr<Mesh> GetMesh() { return _mesh; }
+	shared_ptr<Material> GetMaterial() { return _material; }
+	shared_ptr<InputLayout> GetInputLayout();
+	shared_ptr<VertexShader> GetVertexShader();
+	shared_ptr<PixelShader> GetPixelShader();
+	shared_ptr<Texture> GetTexture();
+
 private:
 	ComPtr<ID3D11Device> _device;
-	shared_ptr<Pipeline> _pipeline;
 
 	friend class RenderManager;
-	// Mesh
-	shared_ptr<Geometry<VertexTextureData>> _geometry;
-	shared_ptr<VertexBuffer> _vertexBuffer;
-	shared_ptr<IndexBuffer> _indexBuffer;
-
-	//Material
-	shared_ptr<InputLayout> _inputLayout;
-	shared_ptr<VertexShader> _vertexShader;
-	shared_ptr<PixelShader> _pixelShader;
-	shared_ptr<Texture> _texture1;
-
+	shared_ptr<Mesh> _mesh;
+	shared_ptr<Material> _material;
 };
 

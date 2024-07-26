@@ -5,6 +5,9 @@
 #include "Camera.h"
 #include "MeshRenderer.h"
 #include "Game.h"
+#include "ResourceManager.h"
+#include "Mesh.h"
+#include "Material.h"
 
 SceneManager::SceneManager(shared_ptr<Graphics> graphics)
 	: _graphics(graphics)
@@ -59,8 +62,15 @@ shared_ptr<Scene> SceneManager::LoadTestScene()
 			_graphics->GetDeviceContext());
 
 		_gameObject->GetOrAddTransform();
-		_gameObject->AddComponent(make_shared<MeshRenderer>(_graphics->GetDevice(),
-			_graphics->GetDeviceContext(), GAME->GetPipeline()));
+		auto meshRenderer = make_shared<MeshRenderer>(_graphics->GetDevice(),
+			_graphics->GetDeviceContext());
+		_gameObject->AddComponent(meshRenderer);
+
+		auto mesh = RESOURCES->Get<Mesh>(L"Quad");
+		meshRenderer->SetMesh(mesh);
+
+		auto material = RESOURCES->Get<Material>(L"Default");
+		meshRenderer->SetMaterial(material);
 
 		scene->AddGameObject(_gameObject);
 	}

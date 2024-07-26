@@ -24,15 +24,12 @@ public:
 	shared_ptr<ResourceManager> GetResourceManager() { return _resourceManager; }
 	shared_ptr<RenderManager> GetRenderManager() { return _renderManager; }
 
-	shared_ptr<Pipeline> GetPipeline() { return _pipeline; }
-
 private:
 	HWND _hwnd = nullptr;
 	//uint32 _width = 0;
 	//uint32 _height = 0;
 
 	shared_ptr<Graphics> _graphics;
-	shared_ptr<Pipeline> _pipeline;
 
 private:
 	shared_ptr<InputManager> _inputManager;

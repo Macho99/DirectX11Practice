@@ -45,6 +45,7 @@ using namespace Microsoft::WRL;
 #define TIME		GGame->GetTimeManager()
 #define INPUT		GGame->GetInputManager()
 #define	RESOURCES	GGame->GetResourceManager()
+#define RENDER		GGame->GetRenderManager()
 
 // Engine
 #include "Graphics.h"
