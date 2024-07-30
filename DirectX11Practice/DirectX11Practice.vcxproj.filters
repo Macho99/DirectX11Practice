@@ -84,6 +84,9 @@
     <Filter Include="소스 파일\00. Engine\Manager\Render">
       <UniqueIdentifier>{ed62db1f-4134-4f99-933f-e61901f1dd22}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02. Script">
+      <UniqueIdentifier>{444665c4-5d99-4f29-9604-47e350636dcd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectX11Practice.h">
@@ -212,6 +215,15 @@
     <ClInclude Include="RenderHelper.h">
       <Filter>소스 파일\00. Engine\Manager\Render</Filter>
     </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>소스 파일\00. Engine\Component\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>소스 파일\99. Headers\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraMove.h">
+      <Filter>소스 파일\02. Script</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="DirectX11Practice.rc">
@@ -334,6 +346,15 @@
     </ClCompile>
     <ClCompile Include="RenderHelper.cpp">
       <Filter>소스 파일\00. Engine\Manager\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>소스 파일\00. Engine\Component\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>소스 파일\99. Headers\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraMove.cpp">
+      <Filter>소스 파일\02. Script</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

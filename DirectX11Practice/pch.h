@@ -19,7 +19,11 @@ using namespace std;
 #include <windows.h>
 #include <assert.h>
 
-//DX
+// Utils
+#include "tinyxml2.h"
+using namespace tinyxml2;
+
+// DX
 #include <d3d11.h>
 #include <d3dcompiler.h>
 #include <wrl.h>

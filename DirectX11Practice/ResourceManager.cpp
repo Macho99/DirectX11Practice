@@ -28,6 +28,12 @@ void ResourceManager::CreateDefaultTexture()
 		texture->Create(L"WithDuck.jpg");
 		Add(texture->GetName(), texture);
 	}
+	{
+		shared_ptr<Texture> texture = make_shared<Texture>(_device);
+		texture->SetName(L"Snake");
+		texture->Create(L"Snake.bmp");
+		Add(texture->GetName(), texture);
+	}
 }
 
 void ResourceManager::CreateDefaultMesh()
@@ -68,4 +74,40 @@ void ResourceManager::CreateDefaultMaterial()
 
 void ResourceManager::CreateDefaultAnimation()
 {
+	shared_ptr<Animation> animation = make_shared<Animation>();
+	animation->SetName(L"SnakeAnim");
+	animation->SetTexture(Get<Texture>(L"Snake"));
+	animation->SetLoop(true);
+
+	animation->AddKeyFrame(
+		Keyframe
+		{
+			Vec2{0.f, 0.f},
+			Vec2{100.f, 100.f},
+			0.2f
+		});
+	animation->AddKeyFrame(
+		Keyframe
+		{
+			Vec2{100.f, 0},
+			Vec2{100.f, 100.f},
+			0.2f
+		});
+	animation->AddKeyFrame(
+		Keyframe
+		{
+			Vec2{200.f, 0.f},
+			Vec2{100.f, 100.f},
+			0.2f
+		});
+	animation->AddKeyFrame(
+		Keyframe
+		{
+			Vec2{300.f, 0.f},
+			Vec2{100.f, 100.f},
+			0.2f
+		});
+
+	Add(animation->GetName(), animation);
+	animation->Save(L"TestAnim.xml");
 }
